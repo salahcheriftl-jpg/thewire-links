@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THE WIRED // download</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#040a0f;--panel:#08161d;--field:#02080b;--teal:#6fe3d2;--dim:#2c6f6a;--text:#cdeee8;--soft:#6f9a97;--red:#ff3b5c;--blue:#3bd5ff;--green:#4dff9a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;overflow-x:hidden;font:14px/1.55 "IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;color:var(--text);background:radial-gradient(ellipse at 50% -10%,#10343e,transparent 62%),var(--bg);background-color:var(--bg)}
+/* CRT scanlines */
+body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 2px,rgba(0,0,0,.28) 3px);animation:fl 5s infinite steps(1)}
+/* vignette */
+body::after{content:"";position:fixed;inset:0;z-index:49;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55))}
+@keyframes fl{0%,100%{opacity:1}92%{opacity:.82}93%{opacity:1}}
+/* perspective grid floor */
+.floor{position:fixed;left:-50%;right:-50%;bottom:0;height:55vh;z-index:0;pointer-events:none;transform:perspective(420px) rotateX(62deg);transform-origin:50% 100%;background:linear-gradient(rgba(111,227,210,.22) 1px,transparent 1px) 0 0/100% 46px,linear-gradient(90deg,rgba(111,227,210,.22) 1px,transparent 1px) 0 0/46px 100%;-webkit-mask-image:linear-gradient(to top,#000,transparent 85%);mask-image:linear-gradient(to top,#000,transparent 85%);animation:scroll 3s linear infinite}
+@keyframes scroll{to{background-position:0 46px,0 0}}
+main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:56px 18px 40px;display:flex;flex-direction:column;gap:34px}
+.rise{opacity:0;transform:translateY(14px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+/* hero */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+.eye{position:relative;width:96px;height:96px;display:grid;place-items:center}
+.eye::before,.eye::after{content:"";position:absolute;inset:0;border:1px solid var(--teal);border-radius:50%;animation:ping 3.2s ease-out infinite;opacity:0}
+.eye::after{animation-delay:1.6s}
+@keyframes ping{0%{transform:scale(.55);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.eye svg{width:64px;height:64px;filter:drop-shadow(0 0 10px rgba(111,227,210,.7))}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--dim);background:rgba(2,8,11,.7);padding:3px 12px;font-size:11px;letter-spacing:.14em;color:var(--soft)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 1.8s infinite}
+@keyframes blink{50%{opacity:.35}}
+h1{position:relative;font:400 clamp(4rem,19vw,7.5rem)/.85 "VT323",monospace;color:var(--teal);letter-spacing:.04em;text-shadow:-3px 0 rgba(255,59,92,.55),3px 0 rgba(59,213,255,.55),0 0 28px rgba(111,227,210,.35);animation:gl 6s infinite}
+@keyframes gl{0%,90%,100%{transform:none}91%{transform:translateX(-5px) skewX(-6deg)}93%{transform:translateX(6px) skewX(5deg)}95%{transform:none}}
+.sub{font-size:12px;color:var(--soft);letter-spacing:.1em}
+.sub b{color:var(--teal);font-weight:600}
+.lead{color:var(--soft);max-width:52ch;font-size:15px}
+.lead b{color:var(--text);font-weight:600}
+/* buttons */
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:10px;background:var(--field);color:var(--teal);border:1px solid var(--dim);padding:13px 16px;font:inherit;font-weight:600;text-decoration:none;letter-spacing:.08em;transition:background .15s,color .15s,box-shadow .15s,border-color .15s}
+.btn:hover,.btn:focus-visible{background:var(--teal);color:#000;border-color:var(--teal);box-shadow:0 0 22px rgba(111,227,210,.45);outline:none}
+.btn svg{width:18px;height:18px;flex:none}
+.open{width:100%;max-width:420px;border-color:var(--teal);font-size:17px;padding:17px;background:linear-gradient(180deg,#0b1f27,#061218);box-shadow:0 0 22px rgba(111,227,210,.18),inset 0 0 26px rgba(0,0,0,.6)}
+.open::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-80px;background:linear-gradient(100deg,transparent,rgba(111,227,210,.35),transparent);animation:sweep 3.8s ease-in-out infinite}
+.open:hover::after{display:none}
+@keyframes sweep{0%,55%{left:-80px}100%{left:110%}}
+/* section label */
+.label{display:flex;align-items:center;gap:12px;font:400 22px/1 "VT323",monospace;letter-spacing:.14em;color:var(--teal)}
+.label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--dim),transparent)}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:14px}
+.card{position:relative;background:linear-gradient(180deg,rgba(13,36,46,.85),rgba(8,22,29,.85));border:1px solid var(--dim);display:flex;flex-direction:column;gap:14px;padding:22px 20px 20px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--teal);box-shadow:0 10px 34px rgba(111,227,210,.14),0 0 0 1px rgba(111,227,210,.2)}
+.card::before,.card::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--teal);pointer-events:none}
+.card::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.card::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.ico{width:54px;height:54px;display:grid;place-items:center;border:1px solid var(--dim);background:var(--field);color:var(--teal);box-shadow:inset 0 0 14px rgba(111,227,210,.12)}
+.ico svg{width:28px;height:28px}
+.card h2{font:400 34px/1 "VT323",monospace;color:var(--teal);letter-spacing:.04em;text-shadow:-2px 0 rgba(255,59,92,.45),2px 0 rgba(59,213,255,.45)}
+.card p{color:var(--soft);font-size:13px}
+.meta{display:flex;gap:8px;flex-wrap:wrap;flex:1;align-content:flex-start}
+.meta span{border:1px solid var(--dim);background:var(--field);padding:1px 8px;font-size:11px;color:var(--soft);letter-spacing:.06em}
+/* feature chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chips span{border:1px solid var(--dim);background:rgba(8,22,29,.8);padding:6px 12px;font-size:12px;color:var(--text);transition:border-color .15s,color .15s,box-shadow .15s}
+.chips span:hover{border-color:var(--teal);color:var(--teal);box-shadow:0 0 12px rgba(111,227,210,.25)}
+.chips b{color:var(--teal);font-weight:600;margin-right:6px}
+/* terminal note */
+.term{border:1px solid var(--teal);background:var(--field);box-shadow:0 0 16px rgba(111,227,210,.12),inset 0 0 26px rgba(0,0,0,.6);font-size:12px;color:var(--soft)}
+.term .bar{background:var(--teal);color:#021014;font:400 18px/1.25 "VT323",monospace;letter-spacing:.1em;padding:1px 10px}
+.term .body{padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.term b{color:var(--teal);font-weight:600}
+.cur{display:inline-block;width:8px;height:14px;background:var(--teal);vertical-align:-2px;margin-left:4px;animation:blink 1s steps(1) infinite}
+footer{text-align:center;color:var(--soft);font-size:11px;letter-spacing:.14em;padding-top:6px}
+footer b{color:var(--teal)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rise{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="floor"></div>
+<main>
+  <section class="hero rise">
+    <div class="eye">
+      <svg viewBox="0 0 64 64" fill="none" stroke="#6fe3d2" stroke-width="2.5" stroke-linecap="round"><path d="M4 32C13 18 23 12 32 12s19 6 28 20c-9 14-19 20-28 20S13 46 4 32z"/><circle cx="32" cy="32" r="9"/><circle cx="32" cy="32" r="3.5" fill="#6fe3d2"/></svg>
+    </div>
+    <span class="pill"><i></i>ONLINE // NO SERVERS</span>
+    <h1>THE WIRED</h1>
+    <div class="sub">friends &amp; rooms // by <b>97CHERIF</b></div>
+    <p class="lead">A chat app for you and your friends. <b>No servers, no sign-up.</b> Messages go straight from device to device.</p>
+    <a class="btn open" id="openSite" href="#">&gt; OPEN WEBSITE</a>
+  </section>
+
+  <section class="rise" style="animation-delay:.15s">
+    <div class="label">DOWNLOAD</div>
+    <div class="grid">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l7.5-1v7H3zM11.5 4.4L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.4z"/></svg></div>
+        <h2>Desktop app</h2>
+        <div class="meta"><span>WINDOWS</span><span>v1.0.0</span><span>.EXE</span></div>
+        <a class="btn" href="https://www.mediafire.com/file/kgvojm8m3iq802y/THE.WIRED.Setup.1.0.0.exe/file" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>DOWNLOAD</a>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 9h12v9a1.5 1.5 0 01-1.5 1.5H15V22h-2v-2.5h-2V22H9v-2.5H7.5A1.5 1.5 0 016 18zM3.5 9.5a1 1 0 012 0v5a1 1 0 01-2 0zm15 0a1 1 0 012 0v5a1 1 0 01-2 0zM6.3 8a5.8 5.8 0 0111.4 0zM9.3 5l-1-1.6.8-.5L10.1 4.5zm5.4 0l-.1-.5 1-1.6.8.5z"/></svg></div>
+        <h2>Android app</h2>
+        <div class="meta"><span>ANDROID</span><span>.APK</span></div>
+        <a class="btn" href="https://www.mediafire.com/file/kgvojm8m3iq802y/THE.WIRED.Setup.1.0.0.exe/file" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>DOWNLOAD</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rise" style="animation-delay:.3s">
+    <div class="label">INSIDE</div>
+    <div class="chips">
+      <span><b>&gt;</b>chats &amp; groups</span><span><b>&gt;</b>voice calls</span><span><b>&gt;</b>screen share</span><span><b>&gt;</b>stickers</span><span><b>&gt;</b>chess &amp; games</span><span><b>&gt;</b>listen together</span><span><b>&gt;</b>watch together</span><span><b>&gt;</b>offline queue</span>
+    </div>
+  </section>
+
+  <section class="term rise" style="animation-delay:.45s">
+    <div class="bar">// MOVING FROM THE BROWSER?</div>
+    <div class="body">
+      <div>The desktop app keeps its own storage, separate from your browser.</div>
+      <div><b>1.</b> Browser &rarr; Backup &rarr; export. <b>2.</b> App &rarr; Backup &rarr; import.<span class="cur"></span></div>
+    </div>
+  </section>
+
+  <footer>THE WIRED // <b>97CHERIF</b></footer>
+</main>
+<script>
+// Set your main website address here:
+var WEBSITE_URL = "#";
+document.getElementById("openSite").href = WEBSITE_URL;
+</script>
+</body>
+</html>
